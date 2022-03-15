@@ -11,6 +11,7 @@ function URL() {
   const [url, setUrl] = useState('')
   const [color, setColor] = useState('#000000')
   const [bgColor, setBgColor] = useState('#ffffff')
+  const [size, setSize] = useState(256)
 
   const onImageDownload = () => {
     const svg = document.getElementById("QRCode");
@@ -33,6 +34,7 @@ function URL() {
     setUrl('')
     setColor('#000000')
     setBgColor('#ffffff')
+    setSize(256)
   };
 
   return (
@@ -42,23 +44,27 @@ function URL() {
           
           <Form>
             <Form.Group className="mb-3">
-            <Form.Label>Input URL</Form.Label>
-            <Form.Control type="text" placeholder="https://google.com" value={url} onChange={(e) => setUrl(e.target.value)} />
+              <Form.Label>Input URL</Form.Label>
+              <Form.Control type="text" placeholder="https://google.com" value={url} onChange={(e) => setUrl(e.target.value)} />
             </Form.Group>
             <Form.Group className="mb-3">
-            <Form.Label>QR Color</Form.Label>
-            <Form.Control type="color" value={color} onChange={(e) => setColor(e.target.value)} />
+              <Form.Label>QR Color</Form.Label>
+              <Form.Control type="color" value={color} onChange={(e) => setColor(e.target.value)} />
             </Form.Group>
             <Form.Group className="mb-3">
-            <Form.Label>Background Color</Form.Label>
-            <Form.Control type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} />
+              <Form.Label>Background Color</Form.Label>
+              <Form.Control type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} />
             </Form.Group>
-            <Button type="button" value="Download QR" onClick={onImageDownload}>Download</Button>
+            <Form.Group className="mb-3">
+              <Form.Label>Size (pixels)</Form.Label>
+              <Form.Control type="number" value={size} onChange={(e) => setSize(e.target.value)} />
+            </Form.Group>
+              <Button type="button" value="Download QR" onClick={onImageDownload}>Download</Button>
           </Form>
         </Col>
 
         <Col className="mb-3" sm={12} md={{ span: 5, offset: 2 }}>
-          <QRCode value={url} size={256} fgColor={color} bgColor={bgColor} id="QRCode"   />
+          <QRCode value={url} size={size} fgColor={color} bgColor={bgColor} id="QRCode"   />
         </Col>
       </Row>
     </Container>
