@@ -64,7 +64,7 @@ function URL() {
         </Col>
 
         <Col className="mb-3" sm={12} md={{ span: 5, offset: 2 }}>
-          <QRCode value={url} size={size} fgColor={color} bgColor={bgColor} id="QRCode"   />
+          <QRCode value={url} size={size} fgColor={color} bgColor={bgColor} level="H" id="QRCode"   />
         </Col>
       </Row>
     </Container>

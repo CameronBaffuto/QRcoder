@@ -1,4 +1,3 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import URL from './Components/URL';
 import Container from 'react-bootstrap/Container'
